@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>System Error</title>
+<style>
+body{
+background:black;
+color:red;
+text-align:center;
+font-size:35px;
+margin-top:100px;
+animation: shake 0.1s infinite;
+}
+
+@keyframes shake{
+0%{transform:translate(2px,2px);}
+25%{transform:translate(-2px,-2px);}
+50%{transform:translate(2px,-2px);}
+75%{transform:translate(-2px,2px);}
+100%{transform:translate(2px,2px);}
+}
+</style>
+</head>
+<body>
+
+<h1 id="msg">⚠ SYSTEM ERROR ⚠</h1>
+<p id="hack"></p>
+
+<script>
+let messages = [
+"Virus detected...",
+"Deleting files...",
+"System crash...",
+"Sending data...",
+"Hacker connected..."
+];
+
+let i = 0;
+
+setInterval(()=>{
+document.getElementById("msg").innerText = messages[i % messages.length];
+i++;
+},1000);
+
+setInterval(()=>{
+document.getElementById("hack").innerHTML += "0101010010110<br>";
+},200);
+
+setTimeout(()=>{
+document.body.style.animation = "none";
+document.getElementById("msg").innerText = "Vui Vậy Thôi ";
+document.getElementById("hack").innerHTML = "";
+},8000);
+</script>
+
+</body>
+</html>
